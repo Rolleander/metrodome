@@ -1,0 +1,17 @@
+{
+  "name": "Test",
+  "bpm": 120,
+  "time": "4/4",
+  "beats": [
+    {
+      "label": "basic beat",
+      "bars": 4
+    }
+  ],
+  "structure": [
+    {
+      "beat": 0,
+      "count": 4
+    }
+  ]
+}
