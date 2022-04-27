@@ -18,9 +18,8 @@ class Song {
     _beats = (data['beats'] as List)
         .map((beat) => Beat(beat, baseTime, baseBpm))
         .toList();
-    _parts = (data['parts'] as List)
-        .map((part) => SongPart(part, _beats))
-        .toList();
+    _parts =
+        (data['parts'] as List).map((part) => SongPart(part, _beats)).toList();
   }
 
   Iterable<Beat> allBeats() {
@@ -37,6 +36,18 @@ class Beat {
     bars = json['bars'];
     time = baseTime;
     bpm = baseBpm;
+  }
+
+  double getBlockLength(int wholeNoteLength) {
+    return (wholeNoteLength / time.note) * time.count;
+  }
+
+  int getNotes() {
+    return time.count * bars;
+  }
+
+  int getDuration() {
+    return getNotes() * time.calcNoteDuration(bpm);
   }
 }
 
